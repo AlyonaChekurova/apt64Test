@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key = "webUrl">http://аптека64плюс.рф</entry>
+    <entry key = "correctTitle">Аптека 64 плюс Саратов</entry>
+    <entry key="wrongTitle">Wrong Title for Test</entry>
+</properties>
