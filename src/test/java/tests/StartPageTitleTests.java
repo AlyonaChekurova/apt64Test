@@ -27,7 +27,7 @@ public class StartPageTitleTests {
     //@Parameters({"browserName"})
     @BeforeTest
     public final void setEnvironment() throws IOException {
-        String browserName = ParametersProvider.getProperty("browserName");
+        String browserName = System.getProperty("browserName");
         this.driver = DriverFactory.createDriver(browserName);
         String webUrl = ParametersProvider.getProperty("webUrl");
         driver.get(webUrl);
