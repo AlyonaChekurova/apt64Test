@@ -10,6 +10,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectj.version>1.8.10</aspectj.version>
+        <test.param>${env.BROWSER}</test.param>
     </properties>
 
     <profiles>
@@ -38,7 +39,6 @@
             </activation>
             <properties>
                 <suiteXmlFileName>parametrized_tests_ci</suiteXmlFileName>
-                <test.param>${env.BROWSER}</test.param>
             </properties>
         </profile>
         <profile>
@@ -54,6 +54,12 @@
     </profiles>
 
     <build>
+        <testResources>
+            <testResource>
+                <directory>configuration</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
