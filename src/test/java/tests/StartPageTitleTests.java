@@ -24,9 +24,10 @@ public class StartPageTitleTests {
      * @throws IOException when config file is unavailable
      */
 
-    @Parameters({"browserName"})
+    //@Parameters({"browserName"})
     @BeforeTest
-    public final void setEnvironment(String browserName) throws IOException {
+    public final void setEnvironment() throws IOException {
+        String browserName = ParametersProvider.getProperty("browserName");
         this.driver = DriverFactory.createDriver(browserName);
         String webUrl = ParametersProvider.getProperty("webUrl");
         driver.get(webUrl);

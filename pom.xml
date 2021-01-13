@@ -23,9 +23,18 @@
             </properties>
         </profile>
         <profile>
+        <id>tests_default</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <suiteXmlFileName>tests_default</suiteXmlFileName>
+        </properties>
+        </profile>
+        <profile>
             <id>parametrized_tests_ci</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suiteXmlFileName>parametrized_tests_ci</suiteXmlFileName>

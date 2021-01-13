@@ -4,4 +4,5 @@
     <entry key = "webUrl">http://аптека64плюс.рф</entry>
     <entry key = "correctTitle">Аптека 64 плюс Саратов</entry>
     <entry key="wrongTitle">Wrong Title for Test</entry>
+    <entry key="browserName">${env.BROWSER}</entry>
 </properties>
