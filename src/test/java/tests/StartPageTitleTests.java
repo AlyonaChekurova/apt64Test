@@ -4,9 +4,7 @@ import helpers.DriverFactory;
 import helpers.ParametersProvider;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
@@ -26,9 +24,10 @@ public class StartPageTitleTests {
      * @throws IOException when config file is unavailable
      */
 
-    @BeforeClass
-    public final void setEnvironment() throws IOException {
-        this.driver = DriverFactory.createDriver();
+    @Parameters({"browserName"})
+    @BeforeTest
+    public final void setEnvironment(String browserName) throws IOException {
+        this.driver = DriverFactory.createDriver(browserName);
         String webUrl = ParametersProvider.getProperty("webUrl");
         driver.get(webUrl);
     }
@@ -41,11 +40,10 @@ public class StartPageTitleTests {
         Assert.assertEquals(currentPageTitle, correctPageTitle);
     }
 
-    @Test(description = "Успешный тест: проверка некорректного заголовка стартовой страницы")
+    @Test(description = "Неуспешный тест: проверка некорректного заголовка стартовой страницы")
     public final void checkWrongMainPageTitle() throws IOException {
         String wrongPageTitle = ParametersProvider.getProperty("wrongTitle");
         String currentPageTitle = driver.getTitle();
-
         Assert.assertEquals(currentPageTitle, wrongPageTitle);
     }
 

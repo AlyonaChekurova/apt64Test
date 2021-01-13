@@ -23,6 +23,7 @@ public final class DriverFactory {
 
     /**
      * Sets driver path if it possible.
+     *
      * @param browserName browser name
      * @throws IOException when config file is not available
      */
@@ -36,11 +37,13 @@ public final class DriverFactory {
 
     /**
      * Get driver
+     *
      * @param browserName browser name
      */
     private static WebDriver getDriver(String browserName) {
-        switch (browserName){
-            case "chrome": case "opera":
+        switch (browserName) {
+            case "chrome":
+            case "opera":
                 return new ChromeDriver();
             case "firefox":
                 return new FirefoxDriver();
@@ -53,29 +56,26 @@ public final class DriverFactory {
 
     /**
      * Creates a browser driver using configuration.
+     *
      * @return browser driver
-     * @throws IOException when config file is not available
+     * @throws IOException           when config file is not available
      * @throws IllegalStateException when unsupported browser chosen
      */
-    public static WebDriver createDriver() throws IOException,
+    public static WebDriver createDriver(String browserName) throws IOException,
             IllegalStateException {
         WebDriver driver;
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        String browserName = ParametersProvider.getProperty("browserName");
-        boolean remote = Boolean.parseBoolean(ParametersProvider
-                .getProperty("remote"));
-        String seleniumUrl = ParametersProvider.getProperty("seleniumUrl");
+        String webUrl = ParametersProvider.getProperty("webUrl");
         int pageLoadTimeout = Integer.parseInt(ParametersProvider
                 .getProperty("pageLoadTimeout"));
 
-        if (remote) {
-            capabilities.setBrowserName(browserName);
-            driver = new RemoteWebDriver(new URL(seleniumUrl), capabilities);
-        } else {
-            trySetDriverPath(browserName);
-            driver = getDriver(browserName);
-        }
+        //capabilities.setBrowserName(browserName);
+        //driver = new RemoteWebDriver(new URL(webUrl), capabilities);
+
+        trySetDriverPath(browserName);
+        driver = getDriver(browserName);
+
         driver.manage().timeouts().pageLoadTimeout(pageLoadTimeout,
                 TimeUnit.SECONDS);
         return driver;

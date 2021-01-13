@@ -23,12 +23,13 @@
             </properties>
         </profile>
         <profile>
-            <id>tests_default</id>
+            <id>parametrized_tests_ci</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suiteXmlFileName>tests_default</suiteXmlFileName>
+                <suiteXmlFileName>parametrized_tests_ci</suiteXmlFileName>
+                <test.param>${env.BROWSER}</test.param>
             </properties>
         </profile>
         <profile>
