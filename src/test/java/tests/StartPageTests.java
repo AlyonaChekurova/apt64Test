@@ -2,6 +2,8 @@ package tests;
 
 import helpers.DriverFactory;
 import helpers.ParametersProvider;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -44,7 +46,7 @@ public class StartPageTests {
      *
      * @throws IOException when config file is unavailable
      */
-    @BeforeTest(description = "Настройка окружения: создание драйвера браузера {browserName}")
+    @BeforeTest(description = "Настройка окружения: создание драйвера браузера")
     public final void setEnvironment() throws IOException {
         this.driver = DriverFactory.createDriver(browserName);
         String webUrl = ParametersProvider.getProperty("webUrl");

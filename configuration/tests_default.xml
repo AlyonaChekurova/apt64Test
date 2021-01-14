@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Default Suite">
-    <test name="StartPageTitleTest">
+    <test name="StartPageTest">
         <classes>
             <class name="tests.StartPageTests" />
         </classes>
