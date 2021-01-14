@@ -32,15 +32,6 @@
         </properties>
         </profile>
         <profile>
-            <id>parametrized_tests_ci</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suiteXmlFileName>parametrized_tests_ci</suiteXmlFileName>
-            </properties>
-        </profile>
-        <profile>
             <id>env_default</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
