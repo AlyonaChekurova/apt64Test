@@ -2,8 +2,6 @@ package tests;
 
 import helpers.DriverFactory;
 import helpers.ParametersProvider;
-import io.qameta.allure.Description;
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -56,8 +54,8 @@ public class StartPageTests {
     /**
      * Authorization test.
      */
-    @Test(description = "Тест авторизации с переданными логином и паролем")
-    public final void authTest(){
+    @Test(description = "Тест авторизации с некорректными логином и паролем")
+    public final void wrongLoginPasswordTest(){
         StartPage startPage = new StartPage(driver);
 
         String message = startPage.clickAuthButton()
@@ -70,8 +68,8 @@ public class StartPageTests {
     /**
      * Search field working test.
      */
-    @Test(description = "Тест работы строки поиска")
-    public final void searchTest() {
+    @Test(description = "Тест работы строки поиска: успешный поиск")
+    public final void successfulSearchTest() {
         StartPage startPage = new StartPage(driver);
 
         String res = startPage.getSearchResultText(query);

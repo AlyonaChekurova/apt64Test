@@ -178,4 +178,3 @@ public class StartPage {
         return Integer.parseInt(cartCount.getText());
     }
 }
-
