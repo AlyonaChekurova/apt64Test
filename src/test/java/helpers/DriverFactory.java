@@ -4,11 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -64,21 +61,19 @@ public final class DriverFactory {
     public static WebDriver createDriver(String browserName) throws IOException,
             IllegalStateException {
         WebDriver driver;
-        DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        String webUrl = ParametersProvider.getProperty("webUrl");
         int pageLoadTimeout = Integer.parseInt(ParametersProvider
                 .getProperty("pageLoadTimeout"));
-
-        //capabilities.setBrowserName(browserName);
-        //driver = new RemoteWebDriver(new URL(webUrl), capabilities);
 
         trySetDriverPath(browserName);
         driver = getDriver(browserName);
 
+        driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(pageLoadTimeout,
                 TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(pageLoadTimeout,
+                TimeUnit.SECONDS);
+
         return driver;
     }
 }
-

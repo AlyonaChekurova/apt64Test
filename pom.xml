@@ -23,13 +23,13 @@
             </properties>
         </profile>
         <profile>
-        <id>tests_default</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <properties>
-            <suiteXmlFileName>tests_default</suiteXmlFileName>
-        </properties>
+            <id>tests_default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suiteXmlFileName>tests_default</suiteXmlFileName>
+            </properties>
         </profile>
         <profile>
             <id>env_default</id>
@@ -103,7 +103,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.9.1</version>
+            <version>3.141.59</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>

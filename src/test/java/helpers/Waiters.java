@@ -19,8 +19,9 @@ public final class Waiters {
 
     /**
      * Wait for Angular pending requests to finish.
+     *
      * @param webDriver browser driver
-     * @param timeout wait threshold
+     * @param timeout   wait threshold
      */
     public static void waitUntilAngularReady(final WebDriver webDriver,
                                              final int timeout) {

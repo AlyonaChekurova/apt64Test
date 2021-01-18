@@ -52,21 +52,22 @@ public class StartPageTests {
     }
 
     /**
-     * Authorization test.
+     * Wrong data authorization test.
+     *
+     * @throws IOException when config file is unavailable
      */
     @Test(description = "Тест авторизации с некорректными логином и паролем")
-    public final void wrongLoginPasswordTest(){
+    public final void wrongLoginPasswordTest() throws IOException {
         StartPage startPage = new StartPage(driver);
 
-        String message = startPage.clickAuthButton()
-                .checkAuth(login, password);
+        String message = startPage.checkAuth(login, password);
 
         Assert.assertEquals(message,
-                "Проверьте правильность введенных данных либо зарегистрируйтесь");
+                ParametersProvider.getProperty("loginErrorMessage"));
     }
 
     /**
-     * Search field working test.
+     * Search field working test: successful search.
      */
     @Test(description = "Тест работы строки поиска: успешный поиск")
     public final void successfulSearchTest() {
@@ -90,7 +91,7 @@ public class StartPageTests {
         int finalCount = startPage.clickAddToCartButton(query)
                 .getCartCount();
 
-        Assert.assertEquals(finalCount, initCount+1);
+        Assert.assertEquals(finalCount, initCount + 1);
 
     }
 
@@ -103,7 +104,6 @@ public class StartPageTests {
 
         Assert.assertNotEquals(driver.getTitle(), pageTitle);
     }
-
 
     /**
      * Suite teardown.
