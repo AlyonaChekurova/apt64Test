@@ -41,7 +41,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>http://gitlab.simbirsoft/alyona.chekurova/apt64test.git</url>
+        <url>https://github.com/AlyonaChekurova/apt64Test.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
